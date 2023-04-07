@@ -1,12 +1,14 @@
 package topic_Modeller;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -58,11 +60,18 @@ public class MainGUI extends JFrame
 		btnStartAnalysis.setBounds(289, 233, 145, 25);
 		contentPane.add(btnStartAnalysis);
 		
+	
 		JButton btnFile = new JButton("File 1");
-		btnFile.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnFile.setIcon(new ImageIcon(MainGUI.class.getResource("/images/TextDocumentClipArt.png")));
+		
+		btnFile.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				
 			}
 		});
+		
 		btnFile.setBounds(12, 12, 71, 25);
 		contentPane.add(btnFile);
 		
@@ -81,5 +90,6 @@ public class MainGUI extends JFrame
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setBounds(12, 244, 148, 14);
 		contentPane.add(progressBar);
+		
 	}
 }

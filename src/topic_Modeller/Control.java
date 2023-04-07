@@ -10,6 +10,7 @@ public class Control
 		MainGUI ControlGUI = new MainGUI(); 
 		ControlGUI.main(args);
 		
+		FileProcessor TopicModeller = new FileProcessor(null, null);
 		
 	}
 	
