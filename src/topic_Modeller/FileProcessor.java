@@ -12,6 +12,7 @@ public class FileProcessor
 	public String stopTemp;
 	public String temp;
 	public int todd = 0;
+	private float analysisPoints = 0;
 	
 	private ArrayList<String> HistogramWordsT1 = new ArrayList<String>();
 	private ArrayList<Integer> HistogramCountsT1 = new ArrayList<Integer>();
@@ -194,7 +195,7 @@ public class FileProcessor
 		int analysisSize = 10;
 		int i;
 		int j;
-		float analysisPoints = 0;
+		analysisPoints = 0;
 		
 		// Calculate amount of simularities
 		for(i = 0;i < analysisSize;i++)
@@ -219,8 +220,16 @@ public class FileProcessor
 		else
 		{
 			System.out.println("Texts aren't about similar topics");
-			
 		}
 		
 	}
+
+
+	public float getAnalysisPoints() 
+	{
+		return analysisPoints;
+	}
+
+
+	
 }
