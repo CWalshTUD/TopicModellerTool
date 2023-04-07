@@ -49,8 +49,9 @@ public class FileProcessor
 			while((stopScanner.hasNextLine() == true) && stopFound == false )
 			{
 				stopTemp = stopScanner.nextLine();
-				if(temp == stopTemp)
+				if(temp.equals(stopTemp))
 				{
+					System.out.print("StopFounds");
 					stopFound = true;
 				}
 			}// Finished stop word check
@@ -86,7 +87,7 @@ public class FileProcessor
 			while((stopScanner.hasNextLine() == true) && stopFound == false )
 			{
 				stopTemp = stopScanner.nextLine();
-				if(temp == stopTemp)
+				if(temp.equals(stopTemp))
 				{
 					stopFound = true;
 				}
@@ -119,7 +120,6 @@ public class FileProcessor
 		System.out.println("Job done");
 		t1Scanner.close();
 		t2Scanner.close();
-		
 	}
 	
 	// Sorts topics from most frequent to least common - Using selectionSort
@@ -178,6 +178,49 @@ public class FileProcessor
 			
 		}
 		
+		System.out.println("Finished Sorting");
+		/* Testing sorting algo
+		for(Integer i1: HistogramCountsT1)
+		{
+			System.out.println(i1);
+			
+		}
+		*/
+		
 	}
 	
+	public void analyse()
+	{
+		int analysisSize = 10;
+		int i;
+		int j;
+		float analysisPoints = 0;
+		
+		// Calculate amount of simularities
+		for(i = 0;i < analysisSize;i++)
+		{
+			for(j = 0;j < analysisSize;j++) 
+			{
+				System.out.println(HistogramWordsT1.get(i));
+				System.out.println(HistogramWordsT2.get(j));
+				if(HistogramWordsT1.get(i).equals(HistogramWordsT2.get(j)))
+				{
+					analysisPoints = (float) (analysisPoints + 0.1);
+					System.out.println(analysisPoints);
+				}
+			}
+		}
+		System.out.println(analysisPoints);
+		if(analysisPoints > 0.6)
+		{
+			System.out.println("Texts are about similar topics");
+			
+		}
+		else
+		{
+			System.out.println("Texts aren't about similar topics");
+			
+		}
+		
+	}
 }

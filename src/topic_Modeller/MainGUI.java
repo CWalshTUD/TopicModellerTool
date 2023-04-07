@@ -67,6 +67,7 @@ public class MainGUI extends JFrame
 				try {
 					TopicModeller.scanTexts();
 					TopicModeller.sortData();
+					TopicModeller.analyse();
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -78,7 +79,6 @@ public class MainGUI extends JFrame
 		
 	
 		JButton btnFile1 = new JButton("File 1");
-		btnFile1.setIcon(new ImageIcon(MainGUI.class.getResource("/images/TextDocumentClipArt.png")));
 		
 		btnFile1.addActionListener(new ActionListener() 
 		{
