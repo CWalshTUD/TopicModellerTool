@@ -60,6 +60,7 @@ public class MainGUI extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(UIManager.getColor("Slider.altTrackColor"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -119,24 +120,30 @@ public class MainGUI extends JFrame
 			public void actionPerformed(ActionEvent e) 
 			{
 				FileProcessor TopicModeller = new FileProcessor(text1, text2);
-				try {
+				
+				try 
+				{
 					TopicModeller.scanTexts();
 					TopicModeller.sortData();
 					TopicModeller.analyse();
 					
 					if(TopicModeller.getAnalysisPoints() > 0.4)
 					{
+						cross.setEnabled(false);
 						tick.setEnabled(true);
 						Simularities.setText("These texts are similar");
 					}
 					else
 					{
 						cross.setEnabled(true);
+						tick.setEnabled(false);
 						Simularities.setText("These texts aren't too similar");
 					}
 						
 						
-				} catch (FileNotFoundException e1) {
+				} 
+				catch (FileNotFoundException e1) 
+				{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}

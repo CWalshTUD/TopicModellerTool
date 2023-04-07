@@ -212,7 +212,7 @@ public class FileProcessor
 			}
 		}
 		System.out.println(analysisPoints);
-		if(analysisPoints > 0.6)
+		if(analysisPoints > 0.4)
 		{
 			System.out.println("Texts are about similar topics");
 			
